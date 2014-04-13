@@ -11,10 +11,8 @@ Plugin.create :mikutter_base64 do
     
     target.messages.each do |mes|
       begin
-        p mes.message
-        p mes.user
         md = Gtk::MessageDialog.new(nil, Gtk::Dialog::DESTROY_WITH_PARENT, Gtk::MessageDialog::WARNING, 
-                                    Gtk::MessageDialog::BUTTONS_CLOSE, ((t = Base64.decode64(mes[:message])) == "") ? "not valid base64" : t)
+                                    Gtk::MessageDialog::BUTTONS_CLOSE, ((t = Base64.decode64(mes[:message]).gsub(/^\. ?/, '').gsub(/@[a-zA-Z0-9_]*/, '')) == "") ? "not valid base64" : t)
         md.run
         md.destroy
       rescue => err
