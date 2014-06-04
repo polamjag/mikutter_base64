@@ -1,0 +1,11 @@
+---
+slug: mikutter_base64
+depends:
+  mikutter: "3.0.0.alpha4"
+  plugin:
+  - gtk
+version: "1.0"
+author: "polamjag"
+name: "base64"
+description: "ツイートをbase64でエンコード・デコード"
+
